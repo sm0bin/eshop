@@ -14,5 +14,25 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  // daisyui: {
+  //   themes: ["nord"],
+  // }
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          "primary": "#3d692c",
+          "secondary": "#afd89d",
+          "accent": "#82bd69",
+          "neutral": "#13250e",
+          "base-100": "#f6faf3",
+          "info": "#3498db",
+          "success": "#27ae60",
+          "warning": "#f39c12",
+          "error": "#e74c3c",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
