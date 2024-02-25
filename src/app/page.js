@@ -19,7 +19,7 @@ export default function Home() {
   });
 
   return (
-    <main>
+    <main className="">
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
