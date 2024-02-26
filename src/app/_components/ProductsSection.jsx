@@ -27,7 +27,7 @@ const ProductsSection = async () => {
                         </figure>
                         <div className="card-body p-3 items-center text-center">
                             <h2 className="card-title text-lg">{product.productName}</h2>
-                            <p>{product.price}</p>
+                            <p>${product.price}</p>
                         </div>
                     </div>
                 ))}

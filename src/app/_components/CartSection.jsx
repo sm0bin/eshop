@@ -43,6 +43,45 @@ export default function CartSection() {
         }
     ];
 
+    // Cancel
+    // Hold
+    // Discount
+    // Pay Now
+    const btns2 = [
+        {
+            id: 1,
+            name: 'Cancel',
+            icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        },
+        {
+            id: 2,
+            name: 'Hold',
+            icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002" />
+            </svg>
+        },
+        {
+            id: 3,
+            name: 'Discount',
+            icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664A4.33 4.33 0 0 0 10.607 12m3.736 0 7.794 4.5-.802.215a4.5 4.5 0 0 1-2.48-.043l-5.326-1.629a4.324 4.324 0 0 1-2.068-1.379M14.343 12l-2.882 1.664" />
+            </svg>
+        },
+        {
+            id: 4,
+            name: 'Pay Now',
+            icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+            </svg>
+
+        }
+    ];
+
+
+
+
     const btnsMarkup = btns.map(({ id, name, icon }) => {
         return (
             <button key={id} className="btn btn-sm">
@@ -51,6 +90,16 @@ export default function CartSection() {
             </button>
         );
     });
+
+    const btnsMarkup2 = btns2.map(({ id, name, icon }) => {
+        return (
+            <button key={id} className="btn btn-sm">
+                {icon}
+                {name}
+            </button>
+        );
+    });
+
 
 
     const navLinksMarkup = navLinks.map(({ href, label }) => {
@@ -64,9 +113,10 @@ export default function CartSection() {
     return (
         <div className="drawer z-50" >
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
+            <div className="drawer-content p-2 flex flex-col gap-2 h-screen bg-gray-100">
                 {/* Page content here */}
 
+                {/* <div className=""> */}
                 {/* Buttons */}
                 <div className="flex justify-between">
                     <label htmlFor="my-drawer" className="btn btn-ghost btn-sm btn-square">
@@ -79,7 +129,7 @@ export default function CartSection() {
                 </div>
 
                 {/* User Section */}
-                <div className="flex items-center justify-between mb-1 bg-base-300 rounded-md">
+                <div className="flex items-center justify-between bg-base-300 rounded-md">
                     <button className="btn btn-ghost">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -94,16 +144,78 @@ export default function CartSection() {
                     </button>
                 </div>
 
-                {/* Cart Section */}
-                <div className="flex items-center justify-between mb-1 bg-base-300 rounded-md">
-                    <h2 className="text-2xl font-bold">Cart</h2>
-                    <button className="btn btn-ghost">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.25h13.5v13.5h-13.5z" />
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 3.75v16.5M13.5 3.75v16.5" />
-                        </svg>
-                    </button>
+
+
+                {/* Cart Items */}
+                <div className="overflow-y-auto flex-grow">
+                    <table className="table table-zebra">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {/* row 1 */}
+                            <tr>
+                                <th>
+                                    <div className="btn btn-square btn-ghost btn-sm">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                        </svg>
+                                    </div>
+                                </th>
+                                <td>Cy Ganderton</td>
+                                <td>$200</td>
+                                <td>
+                                    <div className="join">
+                                        <button className="btn btn-sm join-item rounded-l-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+                                        </svg>
+                                        </button>
+                                        <input className="input input-sm w-14 input-bordered join-item" placeholder="01" />
+                                        <button className="btn btn-sm join-item rounded-r-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                        </svg>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>$200</td>
+                                <td>
+                                    <div className="btn btn-square btn-ghost btn-sm"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                    </svg></div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
+
+                {/* Cart Section */}
+                <div className="flex items-center justify-between bg-base-300 rounded-md p-2">
+                    <div className="flex items-center gap-3">
+                        {/* <h2 className="text-2xl font-bold">Subtotal</h2> */}
+                        <h2 className="text-2xl font-bold">Total</h2>
+                        <h3 className="text-xl font-semibold">(3 products)</h3>
+                    </div>
+
+                    <h3 className="text-xl font-semibold">$400</h3>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex justify-between">
+                    <div className="space-x-2">
+                        {btnsMarkup2}
+                    </div>
+                    <button className="btn btn-primary btn-sm">Checkout</button>
+                </div>
+                {/* </div> */}
 
 
 
