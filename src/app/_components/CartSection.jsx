@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 
 export default function CartSection() {
@@ -66,6 +67,7 @@ export default function CartSection() {
             <div className="drawer-content">
                 {/* Page content here */}
 
+                {/* Buttons */}
                 <div className="flex justify-between">
                     <label htmlFor="my-drawer" className="btn btn-ghost btn-sm btn-square">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -73,9 +75,49 @@ export default function CartSection() {
 
                     <div className="space-x-2">
                         {btnsMarkup}
-
                     </div>
                 </div>
+
+                {/* User Section */}
+                <div className="flex items-center justify-between mb-1 bg-base-300 rounded-md">
+                    <button className="btn btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        Steve Jobs
+                    </button>
+
+                    <button className="btn btn-square btn-ghost" onClick={() => document.getElementById('my_modal_2').showModal()}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </button>
+                </div>
+
+                {/* Cart Section */}
+                <div className="flex items-center justify-between mb-1 bg-base-300 rounded-md">
+                    <h2 className="text-2xl font-bold">Cart</h2>
+                    <button className="btn btn-ghost">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.25h13.5v13.5h-13.5z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 3.75v16.5M13.5 3.75v16.5" />
+                        </svg>
+                    </button>
+                </div>
+
+
+
+                {/* Modal */}
+                <dialog id="my_modal_2" className="modal">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Hello!</h3>
+                        <p className="py-4">Press ESC key or click outside to close</p>
+                    </div>
+                    <form method="dialog" className="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
+
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
@@ -88,5 +130,4 @@ export default function CartSection() {
             </div>
         </div >
     );
-    z - 50
 }
