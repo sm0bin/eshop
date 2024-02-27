@@ -1,100 +1,116 @@
 {
   "products": [
     {
-      "id": 1,
-      "productName": "Camera",
-      "price": 19.99,
-      "image": "https://source.unsplash.com/41QWQNLVirk"
+      "name": "Camera",
+      "price": 20,
+      "image": "https://source.unsplash.com/41QWQNLVirk",
+      "quantity": 4,
+      "category": "Electronics"
     },
     {
-      "id": 2,
-      "productName": "iPod",
-      "price": 39.99,
-      "image": "https://source.unsplash.com/KcbD8QoBGIk"
+      "name": "iPod",
+      "price": 40,
+      "image": "https://source.unsplash.com/KcbD8QoBGIk",
+      "quantity": 6,
+      "category": "Electronics"
     },
     {
-      "id": 3,
-      "productName": "Graphics Tablet",
-      "price": 59.99,
-      "image": "https://source.unsplash.com/BhQeApIm828"
+      "name": "Graphics Tablet",
+      "price": 60,
+      "image": "https://source.unsplash.com/BhQeApIm828",
+      "quantity": 7,
+      "category": "Electronics"
     },
     {
-      "id": 4,
-      "productName": "Gimbal",
-      "price": 49.99,
-      "image": "https://source.unsplash.com/9AWoTUcNZAE"
+      "name": "Gimbal",
+      "price": 50,
+      "image": "https://source.unsplash.com/9AWoTUcNZAE",
+      "quantity": 5,
+      "category": "Electronics"
     },
     {
-      "id": 5,
-      "productName": "Watch",
-      "price": 79.99,
-      "image": "https://source.unsplash.com/DMbOTt6sqRY"
+      "name": "Watch",
+      "price": 80,
+      "image": "https://source.unsplash.com/DMbOTt6sqRY",
+      "quantity": 3,
+      "category": "Accessories"
     },
     {
-      "id": 6,
-      "productName": "Mouse",
-      "price": 29.99,
-      "image": "https://source.unsplash.com/VghbBAYqUJ0"
+      "name": "Mouse",
+      "price": 30,
+      "image": "https://source.unsplash.com/VghbBAYqUJ0",
+      "quantity": 7,
+      "category": "Electronics"
     },
     {
-      "id": 7,
-      "productName": "Headphones",
-      "price": 99.99,
-      "image": "https://source.unsplash.com/IpIqJwxdiog"
+      "name": "Headphones",
+      "price": 100,
+      "image": "https://source.unsplash.com/IpIqJwxdiog",
+      "quantity": 2,
+      "category": "Electronics"
     },
     {
-      "id": 8,
-      "productName": "Drawing Pad",
-      "price": 69.99,
-      "image": "https://source.unsplash.com/yQ38O0DofXQ"
+      "name": "Drawing Pad",
+      "price": 70,
+      "image": "https://source.unsplash.com/yQ38O0DofXQ",
+      "quantity": 5,
+      "category": "Electronics"
     },
     {
-      "id": 9,
-      "productName": "Digital Camera",
-      "price": 89.99,
-      "image": "https://source.unsplash.com/CsvF30-9bX8"
+      "name": "Digital Camera",
+      "price": 90,
+      "image": "https://source.unsplash.com/CsvF30-9bX8",
+      "quantity": 6,
+      "category": "Electronics"
     },
     {
-      "id": 10,
-      "productName": "Phone Case",
-      "price": 9.99,
-      "image": "https://source.unsplash.com/FgfuDt825aE"
+      "name": "Phone Case",
+      "price": 10,
+      "image": "https://source.unsplash.com/FgfuDt825aE",
+      "quantity": 4,
+      "category": "Accessories"
     },
     {
-      "id": 11,
-      "productName": "Vr Googles",
-      "price": 69.99,
-      "image": "https://source.unsplash.com/1i1VgWnG_4k"
+      "name": "Vr Googles",
+      "price": 70,
+      "image": "https://source.unsplash.com/1i1VgWnG_4k",
+      "quantity": 2,
+      "category": "Electronics"
     },
     {
-      "id": 12,
-      "productName": "Laptop",
-      "price": 39.99,
-      "image": "https://source.unsplash.com/P2iaN5Kqk-4"
+      "name": "Laptop",
+      "price": 40,
+      "image": "https://source.unsplash.com/P2iaN5Kqk-4",
+      "quantity": 3,
+      "category": "Electronics"
     },
     {
-      "id": 13,
-      "productName": "Macbook",
-      "price": 49.99,
-      "image": "https://source.unsplash.com/Hin-rzhOdWs"
+      "name": "Macbook",
+      "price": 50,
+      "image": "https://source.unsplash.com/Hin-rzhOdWs",
+      "quantity": 5,
+      "category": "Electronics"
     },
     {
-      "id": 14,
-      "productName": "Phone",
-      "price": 29.99,
-      "image": "https://source.unsplash.com/10YYvVdkySI"
+      "name": "Phone",
+      "price": 30,
+      "image": "https://source.unsplash.com/10YYvVdkySI",
+      "quantity": 3,
+      "category": "Electronics"
     },
     {
-      "id": 15,
-      "productName": "Oneplus 7T",
-      "price": 19.99,
-      "image": "https://source.unsplash.com/enqYaZPSDjQ"
+      "name": "Oneplus 7T",
+      "price": 20,
+      "image": "https://source.unsplash.com/enqYaZPSDjQ",
+      "quantity": 2,
+      "category": "Electronics"
     },
     {
-      "id": 16,
-      "productName": "Beauty Products",
-      "price": 14.99,
-      "image": "https://source.unsplash.com/Wn6r0L3Sw3A"
+      "name": "Beauty Products",
+      "price": 15,
+      "image": "https://source.unsplash.com/Wn6r0L3Sw3A",
+      "quantity": 6,
+      "category": "Beauty"
     }
   ]
 }

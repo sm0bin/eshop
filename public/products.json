@@ -2,97 +2,97 @@
   "products": [
     {
       "id": 1,
-      "productName": "T-shirt",
+      "name": "T-shirt",
       "price": 19.99,
       "image": "img1.jpg"
     },
     {
       "id": 2,
-      "productName": "Jeans",
+      "name": "Jeans",
       "price": 39.99,
       "image": "img2.jpg"
     },
     {
       "id": 3,
-      "productName": "Sneakers",
+      "name": "Sneakers",
       "price": 59.99,
       "image": "img3.jpg"
     },
     {
       "id": 4,
-      "productName": "Dress",
+      "name": "Dress",
       "price": 49.99,
       "image": "img4.jpg"
     },
     {
       "id": 5,
-      "productName": "Watch",
+      "name": "Watch",
       "price": 79.99,
       "image": "img5.jpg"
     },
     {
       "id": 6,
-      "productName": "Backpack",
+      "name": "Backpack",
       "price": 29.99,
       "image": "img6.jpg"
     },
     {
       "id": 7,
-      "productName": "Headphones",
+      "name": "Headphones",
       "price": 99.99,
       "image": "img7.jpg"
     },
     {
       "id": 8,
-      "productName": "Sunglasses",
+      "name": "Sunglasses",
       "price": 69.99,
       "image": "img8.jpg"
     },
     {
       "id": 9,
-      "productName": "Jacket",
+      "name": "Jacket",
       "price": 89.99,
       "image": "img9.jpg"
     },
     {
       "id": 10,
-      "productName": "Phone Case",
+      "name": "Phone Case",
       "price": 9.99,
       "image": "img10.jpg"
     },
     {
       "id": 11,
-      "productName": "Running Shoes",
+      "name": "Running Shoes",
       "price": 69.99,
       "image": "img11.jpg"
     },
     {
       "id": 12,
-      "productName": "Sweater",
+      "name": "Sweater",
       "price": 39.99,
       "image": "img12.jpg"
     },
     {
       "id": 13,
-      "productName": "Laptop Bag",
+      "name": "Laptop Bag",
       "price": 49.99,
       "image": "img13.jpg"
     },
     {
       "id": 14,
-      "productName": "Perfume",
+      "name": "Perfume",
       "price": 29.99,
       "image": "img14.jpg"
     },
     {
       "id": 15,
-      "productName": "Scarf",
+      "name": "Scarf",
       "price": 19.99,
       "image": "img15.jpg"
     },
     {
       "id": 16,
-      "productName": "Gloves",
+      "name": "Gloves",
       "price": 14.99,
       "image": "img16.jpg"
     }

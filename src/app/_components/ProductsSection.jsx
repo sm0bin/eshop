@@ -26,7 +26,7 @@ const ProductsSection = async () => {
                             <img src={product.image} alt="Shoes" className="w-full h-32 object-cover" />
                         </figure>
                         <div className="card-body p-3 items-center text-center">
-                            <h2 className="card-title text-lg">{product.productName}</h2>
+                            <h2 className="card-title text-lg">{product.name}</h2>
                             <p>${product.price}</p>
                         </div>
                     </div>
