@@ -1,6 +1,7 @@
 import { getProducts } from '@/utils/getProducts';
 import React from 'react';
 import CategorySection from './CategorySection';
+import ProductCard from './ProductCard';
 
 const ProductsSection = async () => {
     const data = await getProducts();
@@ -21,15 +22,7 @@ const ProductsSection = async () => {
             <CategorySection />
             <div className='grid grid-cols-4 gap-4'>
                 {data?.map((product) => (
-                    <div className="card bg-base-100 shadow-md">
-                        <figure className="">
-                            <img src={product.image} alt="Shoes" className="w-full h-32 object-cover" />
-                        </figure>
-                        <div className="card-body p-3 items-center text-center">
-                            <h2 className="card-title text-lg">{product.name}</h2>
-                            <p>${product.price}</p>
-                        </div>
-                    </div>
+                    <ProductCard product={product} />
                 ))}
             </div>
 
