@@ -269,7 +269,7 @@ export default function CartSection() {
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <figure className="w-full min-h-28">
-                        <Image width={0} height={0} src="/shop-local.svg" className="w-2/5 mx-auto mt-8 h-auto" alt="logo" />
+                        <Image width={40} height={40} src="/shop-local.svg" className="w-2/5 mx-auto mt-8 h-auto" alt="logo" />
                     </figure>
                     {navLinksMarkup}
                 </ul>

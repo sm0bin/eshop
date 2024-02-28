@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
                 reverseOrder={false}
             />
             <figure className="">
-                <Image width={0} height={0} src={image} alt={name} className="w-full h-32 object-cover" />
+                <Image width={128} height={128} src={image} alt={name} className="w-full h-32 object-cover" />
             </figure>
             <div className="card-body p-3 items-center text-center">
                 <h2 className="card-title text-lg">{name}</h2>
