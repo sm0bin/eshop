@@ -2,6 +2,7 @@
 import useLoadCart from '@/hooks/useLoadCart';
 import axios from 'axios';
 import React from 'react';
+import { Toaster, toast } from 'react-hot-toast';
 
 const ProductCard = ({ product }) => {
     const [refetch] = useLoadCart();
@@ -12,6 +13,7 @@ const ProductCard = ({ product }) => {
         axios.post('http://localhost:5500/cart', { name, productId: _id, price, quantity: 1 })
             .then((res) => {
                 console.log(res);
+                toast.success('Product added to cart!')
                 refetch();
             })
             .catch((err) => {
@@ -22,6 +24,10 @@ const ProductCard = ({ product }) => {
 
     return (
         <div onClick={handleClick} className="card bg-base-100 shadow-md cursor-pointer">
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <figure className="">
                 <img src={image} alt={name} className="w-full h-32 object-cover" />
             </figure>

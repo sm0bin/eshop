@@ -1,6 +1,7 @@
 'use client'
 import axios from 'axios';
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const CartItemRow = ({ item, refetch }) => {
     const { _id, name, price, quantity } = item;
@@ -50,6 +51,7 @@ const CartItemRow = ({ item, refetch }) => {
             .then((res) => {
                 console.log(res);
                 refetch();
+                toast.success('Item removed from cart!');
             })
             .catch((err) => {
                 console.error(err);

@@ -2,6 +2,7 @@
 import CartItemRow from "./CartItemRow";
 import useLoadCart from "@/hooks/useLoadCart";
 import { roundNumber } from "@/utils/roundNumber";
+import { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 
 export default function CartSection() {
@@ -125,8 +126,8 @@ export default function CartSection() {
             text: "You won't be able to revert this!",
             icon: "question",
             showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#27ae60",
+            cancelButtonColor: "#e74c3c",
             confirmButtonText: "Pay Now",
         }).then((result) => {
             if (result.isConfirmed) {
@@ -141,6 +142,10 @@ export default function CartSection() {
 
     return (
         <div className="drawer z-50" >
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content p-2 flex flex-col gap-2 h-screen bg-gray-100">
                 {/* Page content here */}
@@ -249,17 +254,6 @@ export default function CartSection() {
 
                 {/* Modal Add User */}
                 <dialog id="addUserModal" className="modal">
-                    <div className="modal-box">
-                        <h3 className="font-bold text-lg">Hello!</h3>
-                        <p className="py-4">Press ESC key or click outside to close</p>
-                    </div>
-                    <form method="dialog" className="modal-backdrop">
-                        <button>close</button>
-                    </form>
-                </dialog>
-
-                {/* Modal Checkout */}
-                <dialog id="checkoutModal" className="modal">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Hello!</h3>
                         <p className="py-4">Press ESC key or click outside to close</p>
