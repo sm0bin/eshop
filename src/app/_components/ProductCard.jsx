@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
     };
 
     return (
-        <div onClick={handleClick} className="card bg-base-100 shadow-md cursor-pointer">
+        <div onClick={handleClick} className="card bg-base-100 shadow-md cursor-pointer overflow-hidden">
             <Toaster
                 position="top-right"
                 reverseOrder={false}
