@@ -6,7 +6,7 @@ const useLoadCart = () => {
     const { data, refetch, isLoading } = useQuery({
         queryKey: ['cartItems'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5500/cart');
+            const res = await axios.get('https://eshop-server-psi.vercel.app/cart');
             return res.data;
         }
     });

@@ -8,7 +8,7 @@ const CartItemRow = ({ item, refetch }) => {
     // const [itemQuantity, setItemQuantity] = useState(quantity);
 
     const handleItemIncrease = () => {
-        axios.put(`http://localhost:5500/cart/${_id}`, { quantity: quantity + 1 })
+        axios.put(`https://eshop-server-psi.vercel.app/cart/${_id}`, { quantity: quantity + 1 })
             .then((res) => {
                 console.log(res);
                 refetch();
@@ -22,7 +22,7 @@ const CartItemRow = ({ item, refetch }) => {
         if (quantity === 1) {
             return;
         }
-        axios.put(`http://localhost:5500/cart/${_id}`, { quantity: quantity - 1 })
+        axios.put(`https://eshop-server-psi.vercel.app/cart/${_id}`, { quantity: quantity - 1 })
             .then((res) => {
                 console.log(res);
                 refetch();
@@ -34,7 +34,7 @@ const CartItemRow = ({ item, refetch }) => {
 
     const handleQuantityUpdate = (e) => {
         // setItemQuantity(e.target.value);
-        axios.put(`http://localhost:5500/cart/${_id}`, { quantity: e.target.value })
+        axios.put(`https://eshop-server-psi.vercel.app/cart/${_id}`, { quantity: e.target.value })
             .then((res) => {
                 console.log(res);
                 refetch();
@@ -47,7 +47,7 @@ const CartItemRow = ({ item, refetch }) => {
 
 
     const handleDeleteCartItem = () => {
-        axios.delete(`http://localhost:5500/cart/${_id}`)
+        axios.delete(`https://eshop-server-psi.vercel.app/cart/${_id}`)
             .then((res) => {
                 console.log(res);
                 refetch();

@@ -22,7 +22,7 @@ const ProductsSection = async () => {
             <CategorySection />
             <div className='grid grid-cols-4 gap-4'>
                 {data?.map((product) => (
-                    <ProductCard product={product} />
+                    <ProductCard key={product._id} product={product} />
                 ))}
             </div>
 

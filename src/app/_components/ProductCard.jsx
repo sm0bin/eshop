@@ -1,6 +1,7 @@
 'use client';
 import useLoadCart from '@/hooks/useLoadCart';
 import axios from 'axios';
+import Image from 'next/image';
 import React from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 
@@ -10,7 +11,7 @@ const ProductCard = ({ product }) => {
 
     const handleClick = () => {
         console.log('Product clicked:', name);
-        axios.post('http://localhost:5500/cart', { name, productId: _id, price, quantity: 1 })
+        axios.post('https://eshop-server-psi.vercel.app/cart', { name, productId: _id, price, quantity: 1 })
             .then((res) => {
                 console.log(res);
                 toast.success('Product added to cart!')
@@ -29,7 +30,7 @@ const ProductCard = ({ product }) => {
                 reverseOrder={false}
             />
             <figure className="">
-                <img src={image} alt={name} className="w-full h-32 object-cover" />
+                <Image width={0} height={0} src={image} alt={name} className="w-full h-32 object-cover" />
             </figure>
             <div className="card-body p-3 items-center text-center">
                 <h2 className="card-title text-lg">{name}</h2>
