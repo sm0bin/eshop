@@ -1,13 +1,40 @@
+'use client'
 import axios from 'axios';
 import React from 'react';
 
-const CartItemRow = ({ item }) => {
+const CartItemRow = ({ item, refetch }) => {
     const { _id, name, price, quantity } = item;
+
+    const handleItemIncrease = () => {
+        axios.put(`http://localhost:5500/cart/${_id}`, { quantity: quantity + 1 })
+            .then((res) => {
+                console.log(res);
+                refetch();
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }
+
+    const handleItemDecrease = () => {
+        if (quantity === 1) {
+            return;
+        }
+        axios.put(`http://localhost:5500/cart/${_id}`, { quantity: quantity - 1 })
+            .then((res) => {
+                console.log(res);
+                refetch();
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    }
 
     const handleDeleteCartItem = () => {
         axios.delete(`http://localhost:5500/cart/${_id}`)
             .then((res) => {
                 console.log(res);
+                refetch();
             })
             .catch((err) => {
                 console.error(err);
@@ -26,12 +53,12 @@ const CartItemRow = ({ item }) => {
             <td>${price}</td>
             <td>
                 <div className="join">
-                    <button className="btn btn-sm join-item rounded-l-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <button onClick={handleItemDecrease} className="btn btn-sm join-item rounded-l-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
                     </svg>
                     </button>
                     <input name='quantity' className="input input-sm w-14 input-bordered join-item" defaultValue={quantity} />
-                    <button className="btn btn-sm join-item rounded-r-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <button onClick={handleItemIncrease} className="btn btn-sm join-item rounded-r-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
                     </button>

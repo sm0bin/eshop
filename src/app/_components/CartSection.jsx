@@ -1,10 +1,31 @@
 'use client';
-import { getCartItems } from "@/utils/getCartItems";
-import Image from "next/image";
+// import { getCartItems } from "@/utils/getCartItems";
 import CartItemRow from "./CartItemRow";
+import { useState, useEffect } from "react";
+// import { CartContext } from "./CartContext";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { getCartItems } from "@/utils/getCartItems";
 
-export default async function CartSection() {
-    const data = await getCartItems();
+export default function CartSection() {
+    // const { cartProducts, addProduct, removeProduct, clearCart } = useContext(CartContext);
+    // const [cart, setCart] = useState([]);
+    // useEffect(() => {
+    //     axios.get('http://localhost:5500/cart')
+    //         .then((res) => setCart(res.data))
+    // }, []);
+    // const data = await getCartItems();
+
+    const { data, refetch } = useQuery({
+        queryKey: ['cartItems'],
+        queryFn: async () => {
+            const res = await axios.get('http://localhost:5500/cart');
+            return res.data;
+        }
+    });
+
+    const cart = data;
+
     const navLinks = [
         { href: "/dashboard", label: "Dashboard" },
         { href: "/location", label: "Location" },
@@ -119,7 +140,6 @@ export default async function CartSection() {
             <div className="drawer-content p-2 flex flex-col gap-2 h-screen bg-gray-100">
                 {/* Page content here */}
 
-                {/* <div className=""> */}
                 {/* Buttons */}
                 <div className="flex justify-between">
                     <label htmlFor="my-drawer" className="btn btn-ghost btn-sm btn-square">
@@ -140,7 +160,7 @@ export default async function CartSection() {
                         Steve Jobs
                     </button>
 
-                    <button className="btn btn-square btn-ghost" onClick={() => document.getElementById('my_modal_2').showModal()}>
+                    <button onClick={() => document.getElementById('my_modal_2').showModal()} className="btn btn-square btn-ghost" >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
@@ -166,14 +186,33 @@ export default async function CartSection() {
                         <tbody>
                             {/* rows */}
                             {
-                                data?.map((item) => (
-                                    <CartItemRow key={item._id} item={item} />
-
+                                cart?.map((item) => (
+                                    <CartItemRow key={item._id} item={item} refetch={refetch} />
                                 ))
                             }
 
                         </tbody>
                     </table>
+                </div>
+
+                {/* Calculation Section */}
+                <div className="pl-96 bg-base-200 rounded-md p-2">
+                    <div className="flex items-center justify-between">
+                        <h2 className="font-semibold">Subtotal</h2>
+                        <h3 className="font-semibold">$400</h3>
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <h2 className="font-semibold">TAX</h2>
+                        <h3 className="font-semibold">$400</h3>
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <h2 className="font-semibold">Shipping</h2>
+                        <h3 className="font-semibold">$400</h3>
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <h2 className="font-semibold">Discount on Cart</h2>
+                        <h3 className="font-semibold">$400</h3>
+                    </div>
                 </div>
 
                 {/* Cart Section */}
@@ -214,7 +253,7 @@ export default async function CartSection() {
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <figure className="w-full min-h-28">
-                        <Image src="/shop-local.svg" className="mx-auto mt-8" alt="logo" width={100} height={100} />
+                        <img src="/shop-local.svg" className="mx-auto mt-8 h-auto" alt="logo" />
                     </figure>
                     {navLinksMarkup}
                 </ul>

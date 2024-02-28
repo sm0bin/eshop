@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 
 const ProductsSection = async () => {
     const data = await getProducts();
-    console.log(data);
+    // console.log(data);
     return (
         <div className='space-y-4 h-screen overflow-y-auto p-2'>
             {/* Search bar */}
