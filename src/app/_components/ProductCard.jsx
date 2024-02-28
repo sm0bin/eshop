@@ -5,11 +5,11 @@ import React from 'react';
 
 const ProductCard = ({ product }) => {
     const [refetch] = useLoadCart();
-    const { name, price, image } = product;
+    const { _id, name, price, image } = product;
 
     const handleClick = () => {
         console.log('Product clicked:', name);
-        axios.post('http://localhost:5500/cart', { name, price, quantity: 1 })
+        axios.post('http://localhost:5500/cart', { name, productId: _id, price, quantity: 1 })
             .then((res) => {
                 console.log(res);
                 refetch();

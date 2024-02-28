@@ -3,7 +3,7 @@ import axios from "axios";
 
 const useLoadCart = () => {
 
-    const { data, refetch } = useQuery({
+    const { data, refetch, isLoading } = useQuery({
         queryKey: ['cartItems'],
         queryFn: async () => {
             const res = await axios.get('http://localhost:5500/cart');
@@ -12,7 +12,7 @@ const useLoadCart = () => {
     });
 
 
-    return [refetch, data];
+    return [refetch, data, isLoading];
 };
 
 export default useLoadCart;

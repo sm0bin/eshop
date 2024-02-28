@@ -1,33 +1,19 @@
 'use client';
-// import { getCartItems } from "@/utils/getCartItems";
 import CartItemRow from "./CartItemRow";
-import { useState, useEffect } from "react";
-// import { CartContext } from "./CartContext";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-import { getCartItems } from "@/utils/getCartItems";
 import useLoadCart from "@/hooks/useLoadCart";
+import { roundNumber } from "@/utils/roundNumber";
+import Swal from "sweetalert2";
 
 export default function CartSection() {
-    // const { cartProducts, addProduct, removeProduct, clearCart } = useContext(CartContext);
-    // const [cart, setCart] = useState([]);
-    // useEffect(() => {
-    //     axios.get('http://localhost:5500/cart')
-    //         .then((res) => setCart(res.data))
-    // }, []);
-    // const data = await getCartItems();
-
-    // const { data, refetch } = useQuery({
-    //     queryKey: ['cartItems'],
-    //     queryFn: async () => {
-    //         const res = await axios.get('http://localhost:5500/cart');
-    //         return res.data;
-    //     }
-    // });
-
-
-    const [refetch, data] = useLoadCart();
-    const cart = data;
+    const [refetch, cart] = useLoadCart();
+    if (!cart) return <div className="w-full flex justify-center items-center">
+        <span className="loading loading-ring loading-lg"></span>
+    </div>;
+    const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const tax = roundNumber(subtotal * 0.015);
+    const shipping = roundNumber(subtotal * 0.001);
+    const discount = roundNumber(subtotal * 0.1);
+    const total = roundNumber(subtotal + tax + shipping - discount);
 
     const navLinks = [
         { href: "/dashboard", label: "Dashboard" },
@@ -35,6 +21,7 @@ export default function CartSection() {
         { href: "/invoices", label: "POS Invoices" },
         { href: "/settings", label: "Settings" },
     ];
+
     // Note
     // Shipping
     // Hold Orders
@@ -96,18 +83,15 @@ export default function CartSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="m7.848 8.25 1.536.887M7.848 8.25a3 3 0 1 1-5.196-3 3 3 0 0 1 5.196 3Zm1.536.887a2.165 2.165 0 0 1 1.083 1.839c.005.351.054.695.14 1.024M9.384 9.137l2.077 1.199M7.848 15.75l1.536-.887m-1.536.887a3 3 0 1 1-5.196 3 3 3 0 0 1 5.196-3Zm1.536-.887a2.165 2.165 0 0 0 1.083-1.838c.005-.352.054-.695.14-1.025m-1.223 2.863 2.077-1.199m0-3.328a4.323 4.323 0 0 1 2.068-1.379l5.325-1.628a4.5 4.5 0 0 1 2.48-.044l.803.215-7.794 4.5m-2.882-1.664A4.33 4.33 0 0 0 10.607 12m3.736 0 7.794 4.5-.802.215a4.5 4.5 0 0 1-2.48-.043l-5.326-1.629a4.324 4.324 0 0 1-2.068-1.379M14.343 12l-2.882 1.664" />
             </svg>
         },
-        {
-            id: 4,
-            name: 'Pay Now',
-            icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-            </svg>
+        // {
+        //     id: 4,
+        //     name: 'Pay Now',
+        //     icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+        //         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+        //     </svg>
 
-        }
+        // }
     ];
-
-
-
 
     const btnsMarkup = btns.map(({ id, name, icon }) => {
         return (
@@ -127,8 +111,6 @@ export default function CartSection() {
         );
     });
 
-
-
     const navLinksMarkup = navLinks.map(({ href, label }) => {
         return (
             <li key={href}>
@@ -136,6 +118,26 @@ export default function CartSection() {
             </li>
         );
     });
+
+    const handlePay = () => {
+        Swal.fire({
+            title: "Payment Confirm?",
+            text: "You won't be able to revert this!",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Pay Now",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Success!",
+                    text: "Your payment has been confirmed",
+                    icon: "success"
+                });
+            }
+        });
+    }
 
     return (
         <div className="drawer z-50" >
@@ -163,7 +165,7 @@ export default function CartSection() {
                         Steve Jobs
                     </button>
 
-                    <button onClick={() => document.getElementById('my_modal_2').showModal()} className="btn btn-square btn-ghost" >
+                    <button onClick={() => document.getElementById('addUserModal').showModal()} className="btn btn-square btn-ghost" >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
@@ -202,19 +204,19 @@ export default function CartSection() {
                 <div className="pl-96 bg-base-200 rounded-md p-2">
                     <div className="flex items-center justify-between">
                         <h2 className="font-semibold">Subtotal</h2>
-                        <h3 className="font-semibold">$400</h3>
+                        <h3 className="font-semibold">${subtotal}</h3>
                     </div>
                     <div className="flex items-center justify-between">
                         <h2 className="font-semibold">TAX</h2>
-                        <h3 className="font-semibold">$400</h3>
+                        <h3 className="font-semibold">${tax}</h3>
                     </div>
                     <div className="flex items-center justify-between">
                         <h2 className="font-semibold">Shipping</h2>
-                        <h3 className="font-semibold">$400</h3>
+                        <h3 className="font-semibold">${shipping}</h3>
                     </div>
                     <div className="flex items-center justify-between">
                         <h2 className="font-semibold">Discount on Cart</h2>
-                        <h3 className="font-semibold">$400</h3>
+                        <h3 className="font-semibold">${discount}</h3>
                     </div>
                 </div>
 
@@ -223,10 +225,10 @@ export default function CartSection() {
                     <div className="flex items-center gap-3">
                         {/* <h2 className="text-2xl font-bold">Subtotal</h2> */}
                         <h2 className="text-2xl font-bold">Total</h2>
-                        <h3 className="text-xl font-semibold">(3 products)</h3>
+                        <h3 className="text-xl font-semibold">({cart.length} Products)</h3>
                     </div>
 
-                    <h3 className="text-xl font-semibold">$400</h3>
+                    <h3 className="text-xl font-semibold">${total}</h3>
                 </div>
 
                 {/* Buttons */}
@@ -234,14 +236,30 @@ export default function CartSection() {
                     <div className="space-x-2">
                         {btnsMarkup2}
                     </div>
-                    <button className="btn btn-primary btn-sm">Checkout</button>
+                    <button onClick={handlePay} className="btn btn-primary btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                        </svg>
+                        Pay Now
+                    </button>
                 </div>
                 {/* </div> */}
 
 
 
-                {/* Modal */}
-                <dialog id="my_modal_2" className="modal">
+                {/* Modal Add User */}
+                <dialog id="addUserModal" className="modal">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Hello!</h3>
+                        <p className="py-4">Press ESC key or click outside to close</p>
+                    </div>
+                    <form method="dialog" className="modal-backdrop">
+                        <button>close</button>
+                    </form>
+                </dialog>
+
+                {/* Modal Checkout */}
+                <dialog id="checkoutModal" className="modal">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Hello!</h3>
                         <p className="py-4">Press ESC key or click outside to close</p>
@@ -256,7 +274,7 @@ export default function CartSection() {
                 <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <figure className="w-full min-h-28">
-                        <img src="/shop-local.svg" className="mx-auto mt-8 h-auto" alt="logo" />
+                        <img src="/shop-local.svg" className="w-2/5 mx-auto mt-8 h-auto" alt="logo" />
                     </figure>
                     {navLinksMarkup}
                 </ul>
