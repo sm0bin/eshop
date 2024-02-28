@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { getCartItems } from "@/utils/getCartItems";
+import useLoadCart from "@/hooks/useLoadCart";
 
 export default function CartSection() {
     // const { cartProducts, addProduct, removeProduct, clearCart } = useContext(CartContext);
@@ -16,14 +17,16 @@ export default function CartSection() {
     // }, []);
     // const data = await getCartItems();
 
-    const { data, refetch } = useQuery({
-        queryKey: ['cartItems'],
-        queryFn: async () => {
-            const res = await axios.get('http://localhost:5500/cart');
-            return res.data;
-        }
-    });
+    // const { data, refetch } = useQuery({
+    //     queryKey: ['cartItems'],
+    //     queryFn: async () => {
+    //         const res = await axios.get('http://localhost:5500/cart');
+    //         return res.data;
+    //     }
+    // });
 
+
+    const [refetch, data] = useLoadCart();
     const cart = data;
 
     const navLinks = [

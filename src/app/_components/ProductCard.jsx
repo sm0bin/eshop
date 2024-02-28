@@ -1,8 +1,10 @@
 'use client';
+import useLoadCart from '@/hooks/useLoadCart';
 import axios from 'axios';
 import React from 'react';
 
 const ProductCard = ({ product }) => {
+    const [refetch] = useLoadCart();
     const { name, price, image } = product;
 
     const handleClick = () => {
@@ -10,6 +12,7 @@ const ProductCard = ({ product }) => {
         axios.post('http://localhost:5500/cart', { name, price, quantity: 1 })
             .then((res) => {
                 console.log(res);
+                refetch();
             })
             .catch((err) => {
                 console.error(err);
