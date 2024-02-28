@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# eShop Website Readme
 
-## Getting Started
+Welcome to eShop! This is a website where users can add products to their cart. It has been developed using Next.js and React, with styling done using Tailwind CSS.
 
-First, run the development server:
+## Live Link
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+You can access the live website [here](https://eshop-eight-lemon.vercel.app).
 
-Open [https://eshop-server-psi.vercel.app](https://eshop-server-psi.vercel.app) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Users can browse products.
+- Users can add products to their cart.
+- Users can view their cart and update quantities or remove items.
+- Responsive design for various devices.
+- Server-side rendering with Next.js for better performance and SEO.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Technologies Used
 
-## Learn More
+- **Next.js**: Next.js is used for server-side rendering and routing.
+- **React**: React is used for building the user interface and managing state.
+- **Tailwind CSS**: Tailwind CSS is used for styling the components.
+- **Vercel**: The website is deployed on Vercel platform.
 
-To learn more about Next.js, take a look at the following resources:
+## How to Run Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run this project locally, follow these steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install dependencies by running `npm install`.
+4. Start the development server by running `npm run dev`.
+5. Open your browser and go to `http://localhost:3000` to view the website.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or create a pull request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Author
+
+This project is developed and maintained by [Shehjad Mobin](https://www.linkedin.com/in/sm0bin).
+
+If you have any questions or inquiries, feel free to contact me at [shehjad0mobin@gmail.com](mailto:shehjad0mobin@gmail.com).
+
+Enjoy shopping with eShop! 🛒🎉
